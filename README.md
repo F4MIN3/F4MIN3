@@ -11,7 +11,7 @@
 <tr>
 <td align="center">
 <a href="https://www.youtube.com/watch?v=y9ygGm_rwpg">
-<strong>Watch my video</strong>
+<strong>Break the core</strong>
 <br />
 <br />
   
