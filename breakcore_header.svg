@@ -1,0 +1,293 @@
+<svg width="900" height="300" viewBox="0 0 900 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+
+    <!-- Dark glitchy background -->
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"   stop-color="#000000"/>
+      <stop offset="40%"  stop-color="#0d000d"/>
+      <stop offset="100%" stop-color="#000505"/>
+    </linearGradient>
+
+    <!-- Scanline pattern -->
+    <pattern id="scanlines" x="0" y="0" width="900" height="4" patternUnits="userSpaceOnUse">
+      <rect x="0" y="0" width="900" height="2" fill="#ffffff" opacity="0.03"/>
+      <rect x="0" y="2" width="900" height="2" fill="#000000" opacity="0.1"/>
+    </pattern>
+
+    <!-- Noise/static pattern -->
+    <filter id="noise">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" stitchTiles="stitch" result="noiseOut"/>
+      <feColorMatrix type="saturate" values="0" in="noiseOut" result="grayNoise"/>
+      <feBlend in="SourceGraphic" in2="grayNoise" mode="overlay" result="blended"/>
+      <feComposite in="blended" in2="SourceGraphic" operator="in"/>
+    </filter>
+
+    <!-- Glitch glow red -->
+    <filter id="glowRed" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feFlood flood-color="#ff0033" flood-opacity="0.8" result="color"/>
+      <feComposite in="color" in2="blur" operator="in" result="glow"/>
+      <feMerge><feMergeNode in="glow"/><feMergeNode in="glow"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+
+    <!-- Glitch glow cyan -->
+    <filter id="glowCyan" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-color="#00ffcc" flood-opacity="0.7" result="color"/>
+      <feComposite in="color" in2="blur" operator="in" result="glow"/>
+      <feMerge><feMergeNode in="glow"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+
+    <!-- Hard glow white -->
+    <filter id="glowWhite" x="-15%" y="-15%" width="130%" height="130%">
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+
+    <!-- Distort / wave filter -->
+    <filter id="distort">
+      <feTurbulence type="turbulence" baseFrequency="0.02 0.08" numOctaves="1" seed="2" result="turb">
+        <animate attributeName="seed" values="1;5;2;8;3;6;1" dur="0.4s" repeatCount="indefinite"/>
+      </feTurbulence>
+      <feDisplacementMap in="SourceGraphic" in2="turb" scale="6" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+
+    <!-- RGB split (chromatic aberration) via blur+color -->
+    <filter id="chromaRed">
+      <feColorMatrix type="matrix" values="1 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 0"/>
+      <feGaussianBlur stdDeviation="1.5"/>
+    </filter>
+    <filter id="chromaCyan">
+      <feColorMatrix type="matrix" values="0 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0"/>
+      <feGaussianBlur stdDeviation="1.5"/>
+    </filter>
+
+    <clipPath id="clip"><rect width="900" height="300"/></clipPath>
+  </defs>
+
+  <!-- ===== BACKGROUND ===== -->
+  <rect width="900" height="300" fill="url(#bg)"/>
+  <rect width="900" height="300" fill="url(#scanlines)"/>
+
+  <!-- ===== GRID LINES (cyber/rave grid) ===== -->
+  <g stroke="#ff0033" stroke-width="0.4" opacity="0.18" clip-path="url(#clip)">
+    <!-- Horizontal -->
+    <line x1="0" y1="60"  x2="900" y2="60"/>
+    <line x1="0" y1="120" x2="900" y2="120"/>
+    <line x1="0" y1="180" x2="900" y2="180"/>
+    <line x1="0" y1="240" x2="900" y2="240"/>
+    <!-- Vertical -->
+    <line x1="100" y1="0" x2="100" y2="300"/>
+    <line x1="200" y1="0" x2="200" y2="300"/>
+    <line x1="300" y1="0" x2="300" y2="300"/>
+    <line x1="400" y1="0" x2="400" y2="300"/>
+    <line x1="500" y1="0" x2="500" y2="300"/>
+    <line x1="600" y1="0" x2="600" y2="300"/>
+    <line x1="700" y1="0" x2="700" y2="300"/>
+    <line x1="800" y1="0" x2="800" y2="300"/>
+  </g>
+  <!-- Pulsing grid flash -->
+  <rect width="900" height="300" fill="none" stroke="#ff0033" stroke-width="1" opacity="0">
+    <animate attributeName="opacity" values="0;0;0.3;0;0" dur="2.3s" repeatCount="indefinite"/>
+  </rect>
+
+  <!-- ===== WAVEFORM / DRUM BARS (left) ===== -->
+  <g fill="#ff0033" opacity="0.7" filter="url(#glowRed)">
+    <rect x="18" y="120" width="5" height="60">
+      <animate attributeName="height" values="60;120;20;90;40;110;60" dur="0.3s" repeatCount="indefinite"/>
+      <animate attributeName="y"      values="120;60;160;105;160;85;120" dur="0.3s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="27" y="140" width="5" height="30">
+      <animate attributeName="height" values="30;80;10;60;100;20;30" dur="0.25s" repeatCount="indefinite"/>
+      <animate attributeName="y"      values="140;100;170;120;80;160;140" dur="0.25s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="36" y="130" width="5" height="50">
+      <animate attributeName="height" values="50;100;15;80;30;110;50" dur="0.35s" repeatCount="indefinite"/>
+      <animate attributeName="y"      values="130;70;165;110;150;80;130" dur="0.35s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="45" y="145" width="5" height="20">
+      <animate attributeName="height" values="20;70;5;50;90;10;20" dur="0.2s" repeatCount="indefinite"/>
+      <animate attributeName="y"      values="145;110;175;125;90;170;145" dur="0.2s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="54" y="125" width="5" height="60">
+      <animate attributeName="height" values="60;130;25;100;50;120;60" dur="0.28s" repeatCount="indefinite"/>
+      <animate attributeName="y"      values="125;55;155;100;150;75;125" dur="0.28s" repeatCount="indefinite"/>
+    </rect>
+  </g>
+
+  <!-- ===== WAVEFORM / DRUM BARS (right) ===== -->
+  <g fill="#00ffcc" opacity="0.7" filter="url(#glowCyan)">
+    <rect x="840" y="120" width="5" height="60">
+      <animate attributeName="height" values="60;20;110;40;90;120;60" dur="0.3s" repeatCount="indefinite"/>
+      <animate attributeName="y"      values="120;160;65;150;105;60;120" dur="0.3s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="831" y="140" width="5" height="30">
+      <animate attributeName="height" values="30;10;80;100;20;60;30" dur="0.25s" repeatCount="indefinite"/>
+      <animate attributeName="y"      values="140;170;100;80;160;120;140" dur="0.25s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="822" y="130" width="5" height="50">
+      <animate attributeName="height" values="50;15;100;30;80;110;50" dur="0.35s" repeatCount="indefinite"/>
+      <animate attributeName="y"      values="130;165;70;150;110;80;130" dur="0.35s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="813" y="145" width="5" height="20">
+      <animate attributeName="height" values="20;5;70;90;10;50;20" dur="0.2s" repeatCount="indefinite"/>
+      <animate attributeName="y"      values="145;175;110;90;170;125;145" dur="0.2s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="804" y="125" width="5" height="60">
+      <animate attributeName="height" values="60;25;130;50;100;120;60" dur="0.28s" repeatCount="indefinite"/>
+      <animate attributeName="y"      values="125;155;55;150;100;75;125" dur="0.28s" repeatCount="indefinite"/>
+    </rect>
+  </g>
+
+  <!-- ===== GLITCH SLICE BARS ===== -->
+  <g clip-path="url(#clip)" opacity="0.6">
+    <!-- Horizontal glitch bars that appear randomly -->
+    <rect x="0" y="85" width="900" height="4" fill="#ff0033" opacity="0">
+      <animate attributeName="opacity" values="0;0;0;0.7;0;0;0;0;0.5;0" dur="1.7s" repeatCount="indefinite"/>
+      <animate attributeName="y" values="85;85;85;92;92;85;85;85;78;78" dur="1.7s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="0" y="200" width="680" height="3" fill="#00ffcc" opacity="0">
+      <animate attributeName="opacity" values="0;0;0.6;0;0;0;0.4;0;0" dur="2.1s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="200" y="145" width="400" height="2" fill="#ffffff" opacity="0">
+      <animate attributeName="opacity" values="0;0;0;0;0.8;0;0;0" dur="1.3s" repeatCount="indefinite"/>
+    </rect>
+    <!-- Offset duplicate (RGB shift sim) -->
+    <rect x="3" y="150" width="900" height="2" fill="#ff0033" opacity="0">
+      <animate attributeName="opacity" values="0;0.5;0;0;0;0;0.4;0" dur="0.9s" repeatCount="indefinite"/>
+    </rect>
+  </g>
+
+  <!-- ===== BROKEN SHARDS / X marks ===== -->
+  <g stroke="#ff0033" stroke-width="1.5" opacity="0.5" filter="url(#glowRed)">
+    <line x1="88"  y1="22"  x2="100" y2="34"><animate attributeName="opacity" values="0.5;0;0.5" dur="0.6s" repeatCount="indefinite"/></line>
+    <line x1="100" y1="22"  x2="88"  y2="34"><animate attributeName="opacity" values="0.5;0;0.5" dur="0.6s" repeatCount="indefinite"/></line>
+    <line x1="790" y1="255" x2="802" y2="267"><animate attributeName="opacity" values="0;0.5;0" dur="0.8s" repeatCount="indefinite"/></line>
+    <line x1="802" y1="255" x2="790" y2="267"><animate attributeName="opacity" values="0;0.5;0" dur="0.8s" repeatCount="indefinite"/></line>
+  </g>
+  <g stroke="#00ffcc" stroke-width="1.5" opacity="0.45" filter="url(#glowCyan)">
+    <line x1="130" y1="258" x2="142" y2="270"><animate attributeName="opacity" values="0;0.45;0" dur="0.7s" repeatCount="indefinite"/></line>
+    <line x1="142" y1="258" x2="130" y2="270"><animate attributeName="opacity" values="0;0.45;0" dur="0.7s" repeatCount="indefinite"/></line>
+    <line x1="760" y1="20"  x2="772" y2="32"><animate attributeName="opacity" values="0.45;0;0.45" dur="0.55s" repeatCount="indefinite"/></line>
+    <line x1="772" y1="20"  x2="760" y2="32"><animate attributeName="opacity" values="0.45;0;0.45" dur="0.55s" repeatCount="indefinite"/></line>
+  </g>
+
+  <!-- ===== SCATTERED PIXEL NOISE ===== -->
+  <g fill="#ff0033">
+    <rect x="75"  y="40"  width="3" height="3" opacity="0"><animate attributeName="opacity" values="0;1;0" dur="0.18s" repeatCount="indefinite"/></rect>
+    <rect x="200" y="270" width="2" height="2" opacity="0"><animate attributeName="opacity" values="1;0;1" dur="0.22s" repeatCount="indefinite"/></rect>
+    <rect x="630" y="18"  width="3" height="3" opacity="0"><animate attributeName="opacity" values="0;1;0" dur="0.15s" repeatCount="indefinite"/></rect>
+    <rect x="820" y="90"  width="2" height="2" opacity="0"><animate attributeName="opacity" values="1;0;1" dur="0.19s" repeatCount="indefinite"/></rect>
+  </g>
+  <g fill="#00ffcc">
+    <rect x="140" y="70"  width="2" height="2" opacity="0"><animate attributeName="opacity" values="0;1;0" dur="0.21s" repeatCount="indefinite"/></rect>
+    <rect x="700" y="250" width="3" height="3" opacity="0"><animate attributeName="opacity" values="1;0;1" dur="0.17s" repeatCount="indefinite"/></rect>
+    <rect x="500" y="30"  width="2" height="2" opacity="0"><animate attributeName="opacity" values="0;1;0" dur="0.23s" repeatCount="indefinite"/></rect>
+  </g>
+  <g fill="#ffffff">
+    <rect x="350" y="260" width="2" height="2" opacity="0"><animate attributeName="opacity" values="0;1;0" dur="0.14s" repeatCount="indefinite"/></rect>
+    <rect x="555" y="10"  width="3" height="3" opacity="0"><animate attributeName="opacity" values="1;0;1" dur="0.20s" repeatCount="indefinite"/></rect>
+  </g>
+
+  <!-- ===== MAIN TEXT — CHROMATIC ABERRATION LAYERS ===== -->
+  <!-- Red channel offset -->
+  <text x="453" y="162" text-anchor="middle"
+    font-family="'Courier New', 'Lucida Console', monospace"
+    font-size="44" font-weight="900" letter-spacing="2"
+    fill="#ff0033" opacity="0.6">
+    WELCOME TO MY GITHUB
+  </text>
+  <!-- Cyan channel offset -->
+  <text x="447" y="166" text-anchor="middle"
+    font-family="'Courier New', 'Lucida Console', monospace"
+    font-size="44" font-weight="900" letter-spacing="2"
+    fill="#00ffcc" opacity="0.6">
+    WELCOME TO MY GITHUB
+  </text>
+  <!-- Main white text with glitch distort -->
+  <text x="450" y="164" text-anchor="middle"
+    font-family="'Courier New', 'Lucida Console', monospace"
+    font-size="44" font-weight="900" letter-spacing="2"
+    fill="#ffffff" filter="url(#glowWhite)">
+    WELCOME TO MY GITHUB
+    <!-- Glitch flicker -->
+    <animate attributeName="opacity" values="1;1;1;1;0.1;1;1;0.05;1;1;1;0.2;1" dur="1.9s" repeatCount="indefinite"/>
+  </text>
+  <!-- Glitch slice on main text -->
+  <g clip-path="url(#clip)">
+    <text x="455" y="164" text-anchor="middle"
+      font-family="'Courier New', 'Lucida Console', monospace"
+      font-size="44" font-weight="900" letter-spacing="2"
+      fill="#ff0033" opacity="0">
+      WELCOME TO MY GITHUB
+      <animate attributeName="opacity" values="0;0;0;0.9;0;0;0;0;0;0.7;0" dur="1.3s" repeatCount="indefinite"/>
+      <animate attributeName="x" values="455;462;448;455;455;458;455" dur="1.3s" repeatCount="indefinite"/>
+    </text>
+  </g>
+
+  <!-- ===== BYLINE: by F4MIN3 ===== -->
+  <!-- Red aberration -->
+  <text x="452" y="215" text-anchor="middle"
+    font-family="'Courier New', monospace"
+    font-size="22" font-weight="700" letter-spacing="12"
+    fill="#ff0033" opacity="0.65">
+    by F4MIN3
+  </text>
+  <!-- Cyan aberration -->
+  <text x="448" y="218" text-anchor="middle"
+    font-family="'Courier New', monospace"
+    font-size="22" font-weight="700" letter-spacing="12"
+    fill="#00ffcc" opacity="0.65">
+    by F4MIN3
+  </text>
+  <!-- Main white byline -->
+  <text x="450" y="216" text-anchor="middle"
+    font-family="'Courier New', monospace"
+    font-size="22" font-weight="700" letter-spacing="12"
+    fill="#ffffff" filter="url(#glowWhite)">
+    by F4MIN3
+    <animate attributeName="opacity" values="1;1;0.05;1;1;1;0.1;1" dur="2.2s" repeatCount="indefinite"/>
+  </text>
+
+  <!-- ===== WARNING / ERROR LABELS (breakcore hacker aesthetic) ===== -->
+  <text x="100" y="38" text-anchor="middle"
+    font-family="'Courier New', monospace" font-size="9" letter-spacing="2"
+    fill="#ff0033" opacity="0.55" filter="url(#glowRed)">
+    ERR_0x4F2A
+    <animate attributeName="opacity" values="0.55;0;0.55;0.55;0" dur="3s" repeatCount="indefinite"/>
+  </text>
+  <text x="800" y="38" text-anchor="middle"
+    font-family="'Courier New', monospace" font-size="9" letter-spacing="2"
+    fill="#00ffcc" opacity="0.5" filter="url(#glowCyan)">
+    SYS_BREAK
+    <animate attributeName="opacity" values="0;0.5;0;0.5" dur="2.5s" repeatCount="indefinite"/>
+  </text>
+  <text x="100" y="278" text-anchor="middle"
+    font-family="'Courier New', monospace" font-size="8" letter-spacing="1"
+    fill="#ff0033" opacity="0.4">
+    174BPM
+    <animate attributeName="opacity" values="0.4;0.8;0.4" dur="0.34s" repeatCount="indefinite"/>
+  </text>
+  <text x="800" y="278" text-anchor="middle"
+    font-family="'Courier New', monospace" font-size="8" letter-spacing="1"
+    fill="#00ffcc" opacity="0.4">
+    ▓▒░ CORE
+    <animate attributeName="opacity" values="0.4;0.1;0.4" dur="0.28s" repeatCount="indefinite"/>
+  </text>
+
+  <!-- ===== HEAVY STROBE FLASH ===== -->
+  <rect width="900" height="300" fill="#ff0033" opacity="0">
+    <animate attributeName="opacity"
+      values="0;0;0;0;0;0;0.15;0;0;0;0;0;0;0;0.08;0"
+      dur="1.6s" repeatCount="indefinite"/>
+  </rect>
+  <rect width="900" height="300" fill="#ffffff" opacity="0">
+    <animate attributeName="opacity"
+      values="0;0;0;0;0.12;0;0;0;0;0;0.06;0"
+      dur="2.3s" repeatCount="indefinite"/>
+  </rect>
+
+  <!-- ===== SCANLINE OVERLAY (final pass) ===== -->
+  <rect width="900" height="300" fill="url(#scanlines)" opacity="0.5"/>
+
+</svg>
