@@ -1,3 +1,8 @@
+<div align="center">
+<table width="100%" align="center">
+<tr>
+<td align="center">
+
 ![Header](./breakcore_header.svg)
 ![Divider](./breakcore_divider.svg)
 <p align="center">
@@ -6,10 +11,6 @@
 
 ![Divider](./breakcore_divider.svg)
 
-<div align="center">
-<table width="100%" align="center">
-<tr>
-<td align="center">
 <a href="https://www.youtube.com/watch?v=y9ygGm_rwpg">
 <strong>Break the core</strong>
 <br />
