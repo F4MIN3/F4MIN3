@@ -2,4 +2,4 @@
 ![Divider](./breakcore_divider.svg)
 ![description](./sewerslvt-jvnko.gif)
 ![Divider](./breakcore_divider.svg)
-[▶ Watch my video](./Fine-Night.mp4)
+[![Preview](./xqc-breakcore.gif)](./Fine-Night.mp4)
