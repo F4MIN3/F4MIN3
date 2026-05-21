@@ -1,1 +1,1 @@
-![Header](./disco-header.svg)
+![Header](./breakcore-header.svg)
