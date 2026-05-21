@@ -2,4 +2,4 @@
 ![Divider](./breakcore_divider.svg)
 ![description](./sewerslvt-jvnko.gif)
 ![Divider](./breakcore_divider.svg)
-[![Watch](https://img.youtube.com/vi/y9ygGm_rwpg/maxresdefault.jpg)](https://www.youtube.com/watch?v=y9ygGm_rwpg)
+https://github.com/user-attachments/assets/24519420-80a7-486d-9f2c-69804d3c8bd7
