@@ -1,0 +1,180 @@
+<svg width="900" height="60" viewBox="0 0 900 60" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#000000"/>
+      <stop offset="50%"  stop-color="#0d000d"/>
+      <stop offset="100%" stop-color="#000000"/>
+    </linearGradient>
+
+    <linearGradient id="lineGradL" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#ff0033" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#ff0033" stop-opacity="1"/>
+    </linearGradient>
+    <linearGradient id="lineGradR" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#00ffcc" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#00ffcc" stop-opacity="0"/>
+    </linearGradient>
+
+    <filter id="glowRed" x="-20%" y="-100%" width="140%" height="300%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-color="#ff0033" flood-opacity="0.9" result="color"/>
+      <feComposite in="color" in2="blur" operator="in" result="glow"/>
+      <feMerge><feMergeNode in="glow"/><feMergeNode in="glow"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="glowCyan" x="-20%" y="-100%" width="140%" height="300%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-color="#00ffcc" flood-opacity="0.9" result="color"/>
+      <feComposite in="color" in2="blur" operator="in" result="glow"/>
+      <feMerge><feMergeNode in="glow"/><feMergeNode in="glow"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="glowWhite" x="-30%" y="-200%" width="160%" height="500%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+
+    <pattern id="scanlines" x="0" y="0" width="900" height="3" patternUnits="userSpaceOnUse">
+      <rect x="0" y="0" width="900" height="1" fill="#ffffff" opacity="0.03"/>
+    </pattern>
+
+    <clipPath id="clip"><rect width="900" height="60"/></clipPath>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="60" fill="url(#bg)"/>
+  <rect width="900" height="60" fill="url(#scanlines)" opacity="0.6"/>
+
+  <!-- ===== LEFT LINE (red, fades in from left) ===== -->
+  <rect x="0" y="28" width="370" height="1.5" fill="url(#lineGradL)" filter="url(#glowRed)">
+    <animate attributeName="opacity" values="1;0.4;1;1;0.6;1" dur="1.7s" repeatCount="indefinite"/>
+  </rect>
+  <!-- red line glitch duplicate -->
+  <rect x="0" y="26" width="200" height="1" fill="#ff0033" opacity="0">
+    <animate attributeName="opacity" values="0;0;0.8;0;0;0" dur="1.3s" repeatCount="indefinite"/>
+    <animate attributeName="width" values="200;350;200" dur="1.3s" repeatCount="indefinite"/>
+  </rect>
+
+  <!-- ===== RIGHT LINE (cyan, fades out to right) ===== -->
+  <rect x="530" y="28" width="370" height="1.5" fill="url(#lineGradR)" filter="url(#glowCyan)">
+    <animate attributeName="opacity" values="1;1;0.4;1;0.7;1" dur="2.1s" repeatCount="indefinite"/>
+  </rect>
+  <!-- cyan line glitch duplicate -->
+  <rect x="600" y="30" width="200" height="1" fill="#00ffcc" opacity="0">
+    <animate attributeName="opacity" values="0;0.7;0;0;0;0" dur="1.8s" repeatCount="indefinite"/>
+    <animate attributeName="x" values="600;500;600" dur="1.8s" repeatCount="indefinite"/>
+  </rect>
+
+  <!-- ===== CENTER DIAMOND ===== -->
+  <!-- Outer glow ring -->
+  <polygon points="450,14 466,30 450,46 434,30"
+    fill="none" stroke="#ff0033" stroke-width="1" opacity="0.5" filter="url(#glowRed)">
+    <animate attributeName="opacity" values="0.5;1;0.5;0.2;0.5" dur="1.4s" repeatCount="indefinite"/>
+  </polygon>
+  <!-- Cyan inner diamond -->
+  <polygon points="450,19 461,30 450,41 439,30"
+    fill="none" stroke="#00ffcc" stroke-width="1.2" filter="url(#glowCyan)">
+    <animate attributeName="opacity" values="1;0.3;1;0.6;1" dur="1.1s" repeatCount="indefinite"/>
+  </polygon>
+  <!-- White center dot -->
+  <circle cx="450" cy="30" r="3" fill="#ffffff" filter="url(#glowWhite)">
+    <animate attributeName="r" values="3;2;3;4;3" dur="0.9s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="1;0.2;1;0.8;1" dur="0.9s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- ===== TICK MARKS left ===== -->
+  <g stroke="#ff0033" stroke-width="1" filter="url(#glowRed)">
+    <line x1="410" y1="24" x2="410" y2="36" opacity="0.8">
+      <animate attributeName="opacity" values="0.8;0.2;0.8" dur="0.7s" repeatCount="indefinite"/>
+    </line>
+    <line x1="395" y1="26" x2="395" y2="34" opacity="0.5">
+      <animate attributeName="opacity" values="0.5;0;0.5" dur="1.1s" repeatCount="indefinite"/>
+    </line>
+    <line x1="378" y1="27" x2="378" y2="33" opacity="0.3">
+      <animate attributeName="opacity" values="0.3;0.7;0.3" dur="0.9s" repeatCount="indefinite"/>
+    </line>
+  </g>
+
+  <!-- ===== TICK MARKS right ===== -->
+  <g stroke="#00ffcc" stroke-width="1" filter="url(#glowCyan)">
+    <line x1="490" y1="24" x2="490" y2="36" opacity="0.8">
+      <animate attributeName="opacity" values="0.2;0.8;0.2" dur="0.7s" repeatCount="indefinite"/>
+    </line>
+    <line x1="505" y1="26" x2="505" y2="34" opacity="0.5">
+      <animate attributeName="opacity" values="0;0.5;0" dur="1.1s" repeatCount="indefinite"/>
+    </line>
+    <line x1="522" y1="27" x2="522" y2="33" opacity="0.3">
+      <animate attributeName="opacity" values="0.7;0.3;0.7" dur="0.9s" repeatCount="indefinite"/>
+    </line>
+  </g>
+
+  <!-- ===== MINI WAVEFORM left of center ===== -->
+  <g fill="#ff0033" opacity="0.7" filter="url(#glowRed)">
+    <rect x="330" y="25" width="3" height="10">
+      <animate attributeName="height" values="10;20;4;14;8;18;10" dur="0.28s" repeatCount="indefinite"/>
+      <animate attributeName="y"      values="25;20;28;23;26;21;25" dur="0.28s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="337" y="27" width="3" height="6">
+      <animate attributeName="height" values="6;16;2;10;18;4;6" dur="0.22s" repeatCount="indefinite"/>
+      <animate attributeName="y"      values="27;22;29;25;21;28;27" dur="0.22s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="344" y="26" width="3" height="8">
+      <animate attributeName="height" values="8;18;3;12;6;16;8" dur="0.31s" repeatCount="indefinite"/>
+      <animate attributeName="y"      values="26;21;28;24;27;22;26" dur="0.31s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="351" y="28" width="3" height="4">
+      <animate attributeName="height" values="4;14;2;8;16;6;4" dur="0.19s" repeatCount="indefinite"/>
+      <animate attributeName="y"      values="28;23;29;26;22;27;28" dur="0.19s" repeatCount="indefinite"/>
+    </rect>
+  </g>
+
+  <!-- ===== MINI WAVEFORM right of center ===== -->
+  <g fill="#00ffcc" opacity="0.7" filter="url(#glowCyan)">
+    <rect x="564" y="25" width="3" height="10">
+      <animate attributeName="height" values="4;18;8;20;6;12;4" dur="0.28s" repeatCount="indefinite"/>
+      <animate attributeName="y"      values="28;21;26;20;27;24;28" dur="0.28s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="557" y="27" width="3" height="6">
+      <animate attributeName="height" values="16;4;12;2;18;8;16" dur="0.22s" repeatCount="indefinite"/>
+      <animate attributeName="y"      values="22;28;24;29;21;26;22" dur="0.22s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="550" y="26" width="3" height="8">
+      <animate attributeName="height" values="3;16;6;18;2;14;3" dur="0.31s" repeatCount="indefinite"/>
+      <animate attributeName="y"      values="28;22;27;21;29;23;28" dur="0.31s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="543" y="28" width="3" height="4">
+      <animate attributeName="height" values="14;2;16;4;10;18;14" dur="0.19s" repeatCount="indefinite"/>
+      <animate attributeName="y"      values="23;29;22;28;25;21;23" dur="0.19s" repeatCount="indefinite"/>
+    </rect>
+  </g>
+
+  <!-- ===== GLITCH SLICES ===== -->
+  <g clip-path="url(#clip)">
+    <rect x="0" y="22" width="900" height="2" fill="#ff0033" opacity="0">
+      <animate attributeName="opacity" values="0;0;0;0.6;0;0;0;0;0" dur="1.9s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="0" y="35" width="600" height="1.5" fill="#00ffcc" opacity="0">
+      <animate attributeName="opacity" values="0;0.5;0;0;0;0;0.3;0" dur="2.3s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="300" y="29" width="900" height="1" fill="#ffffff" opacity="0">
+      <animate attributeName="opacity" values="0;0;0;0;0.7;0;0" dur="1.5s" repeatCount="indefinite"/>
+    </rect>
+  </g>
+
+  <!-- ===== PIXEL NOISE ===== -->
+  <g fill="#ff0033">
+    <rect x="50"  y="20" width="2" height="2" opacity="0"><animate attributeName="opacity" values="0;1;0" dur="0.17s" repeatCount="indefinite"/></rect>
+    <rect x="250" y="40" width="2" height="2" opacity="0"><animate attributeName="opacity" values="1;0;1" dur="0.21s" repeatCount="indefinite"/></rect>
+    <rect x="820" y="18" width="2" height="2" opacity="0"><animate attributeName="opacity" values="0;1;0" dur="0.15s" repeatCount="indefinite"/></rect>
+  </g>
+  <g fill="#00ffcc">
+    <rect x="140" y="42" width="2" height="2" opacity="0"><animate attributeName="opacity" values="0;1;0" dur="0.19s" repeatCount="indefinite"/></rect>
+    <rect x="700" y="15" width="2" height="2" opacity="0"><animate attributeName="opacity" values="1;0;1" dur="0.23s" repeatCount="indefinite"/></rect>
+  </g>
+
+  <!-- ===== STROBE ===== -->
+  <rect width="900" height="60" fill="#ff0033" opacity="0">
+    <animate attributeName="opacity"
+      values="0;0;0;0;0;0.12;0;0;0;0;0;0;0.07;0"
+      dur="2.1s" repeatCount="indefinite"/>
+  </rect>
+
+</svg>
