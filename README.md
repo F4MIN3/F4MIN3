@@ -22,6 +22,11 @@ https://github.com/user-attachments/assets/a967b38a-200e-41d0-b8c4-9b51b94e26e9
 ![gif](./xqc-breakcore.gif)
 
 </a>
+
+![Divider](./breakcore_divider.svg)
+
+<a href="./work/README.md"><strong>work →</strong></a>
+
 </td>
 </tr>
 </table>
