@@ -2,13 +2,13 @@
 
 **Francisco** — developer in progress, currently learning Python.
 
-I'm interested in the intersection of artificial intelligence and creative domains — specifically how machine learning can be used to generate music and drive game systems. My work lives at that edge where code meets something that feels alive.
+I'm interested in using artificial intelligence to build smarter, more dynamic games — writing the code that makes game systems think, adapt, and respond. My focus is on the programming side: building game projects from scratch and applying AI where it makes games more interesting.
 
 ## Focus areas
 
-- **AI + Music** — using models to generate, manipulate, and respond to sound in real time
-- **AI + Gaming** — building game logic, agents, and experiences driven by machine learning
-- **Python** — primary language, growing from fundamentals toward applied ML
+- **AI Programming in Gaming** — using machine learning to drive game logic, agent behavior, and adaptive systems
+- **Game Project Development** — coding game mechanics and systems in Python from the ground up
+- **Python** — primary language, growing from fundamentals toward applied ML and game development
 
 ## Currently
 
