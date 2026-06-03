@@ -1,25 +1,25 @@
 # Projects
 
-## AI Music Generation
+## AI Programming in Gaming
 
-**Conjectional Music** — generative music system powered by AI
+**AI Game Systems** — applying artificial intelligence to game logic and behavior
 
-Using machine learning to compose and respond to music dynamically. The idea: rather than fixed tracks, the system generates sound based on input, mood, or state — music that reacts rather than plays.
+Using Python and machine learning to build intelligent game systems — smarter NPCs, adaptive difficulty, and AI-driven decision making. The focus is on making games that respond and adapt rather than follow fixed scripts.
 
 - Language: Python
-- Focus: generative audio, ML inference, real-time response
+- Focus: game AI, agent behavior, reinforcement learning
 - Status: in development
 
 ---
 
-## AI Gaming
+## Coding for Game Projects
 
-**AI-Driven Game Systems** — intelligent agents and adaptive gameplay
+**Game Development** — building games from the ground up with code
 
-Applying AI to game environments — NPC behavior, procedural generation, and adaptive difficulty. The goal is games that feel less scripted and more alive.
+Writing the underlying systems that make games work: mechanics, physics, input handling, and game loops. Learning how to structure game projects cleanly in Python before moving into larger engines.
 
 - Language: Python
-- Focus: reinforcement learning, game agents, decision systems
+- Focus: game mechanics, project structure, core systems
 - Status: in development
 
 ---
