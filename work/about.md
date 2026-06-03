@@ -1,15 +1,27 @@
-# About
+# About — Francisco (F4MIN3)
 
-**Francisco** — developer in progress, currently learning Python.
+> Developer in progress, learning Python and building toward AI-driven game projects.
 
-I'm interested in using artificial intelligence to build smarter, more dynamic games — writing the code that makes game systems think, adapt, and respond. My focus is on the programming side: building game projects from scratch and applying AI where it makes games more interesting.
+---
 
-## Focus areas
+## Background
 
-- **AI Programming in Gaming** — using machine learning to drive game logic, agent behavior, and adaptive systems
-- **Game Project Development** — coding game mechanics and systems in Python from the ground up
-- **Python** — primary language, growing from fundamentals toward applied ML and game development
+I'm Francisco — currently learning to code with a focus on Python. My goal is to apply artificial intelligence to gaming: writing smarter game systems, building projects from scratch, and understanding how AI can make games more dynamic and interesting.
 
-## Currently
+---
 
-Learning the foundations: Python, data structures, and the ML concepts that make the above possible.
+## Focus Areas
+
+| Area | Description |
+|------|-------------|
+| **AI Programming in Gaming** | Applying machine learning to game logic, agent behavior, and adaptive systems |
+| **Game Project Development** | Coding game mechanics and core systems in Python from the ground up |
+| **Python** | Primary language — growing from fundamentals toward applied ML and game development |
+
+---
+
+## Currently Learning
+
+- Python fundamentals and data structures
+- Machine learning concepts for game AI
+- How to structure and build game projects cleanly
