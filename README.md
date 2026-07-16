@@ -25,7 +25,7 @@ https://github.com/user-attachments/assets/a967b38a-200e-41d0-b8c4-9b51b94e26e9
 
 ![Divider](./breakcore_divider.svg)
 
-🎓 [CS50 Certificate] [HarvardX CS50P Certificate _ edX.pdf](https://github.com/user-attachments/files/30095737/HarvardX.CS50P.Certificate._.edX.pdf)
+🎓 [CS50 Certificate] 
 
 
 <img width="2112" height="1632" alt="CS50P" src="https://github.com/user-attachments/assets/9d5a2c02-a236-4d51-9ebf-21d2bcce33d6" />
